@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/loginUserame"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="#FF4081"
@@ -58,6 +59,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/loginPassword"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -76,6 +78,8 @@
 
 
             <Button
+
+                android:id="@+id/signIn"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
@@ -84,6 +88,12 @@
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Account"
+                android:gravity="center"/>
         </LinearLayout>
     </RelativeLayout>
 
