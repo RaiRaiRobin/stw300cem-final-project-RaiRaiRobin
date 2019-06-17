@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".PatientActivity"></activity>
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +24,8 @@
         </activity>
         <activity android:name=".DashboardActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
