@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DoctorActivity"></activity>
+        <activity android:name=".NurseActivity"></activity>
+        <activity android:name=".DoctorActivity" />
         <activity android:name=".PatientActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
