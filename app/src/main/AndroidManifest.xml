@@ -15,14 +15,17 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".NurseActivity"></activity>
-        <activity android:name=".DoctorActivity" />
-        <activity android:name=".PatientActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".DoctorActivity" />
+        <activity android:name=".PatientActivity" />
+        <activity android:name=".SplashActivity">
+
         </activity>
         <activity android:name=".DashboardActivity" />
         <activity android:name=".RegisterActivity" />
