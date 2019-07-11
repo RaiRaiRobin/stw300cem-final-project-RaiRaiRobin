@@ -24,28 +24,28 @@
 
 
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:textColorHint="#ffffff">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
                         android:textColorHint="#ffffff">
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:textColorHint="#ffffff">
 
-                            <android.support.design.widget.TextInputLayout
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:focusable="true"
@@ -56,12 +56,12 @@
                                     android:id="@+id/etDob"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Date of Birth"
+                                    android:layout_marginTop="5dp"
                                     android:ems="10"
+                                    android:hint="Date of Birth"
                                     android:inputType="date"
-                                    android:textSize="20sp"
-                                    android:layout_marginTop="5dp"/>
-                            </android.support.design.widget.TextInputLayout>
+                                    android:textSize="20sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
 
                             <EditText
                                 android:id="@+id/etLname"
@@ -72,7 +72,7 @@
                                 android:inputType="text"
                                 android:textSize="20sp"
                                 android:layout_marginTop="5dp"/>
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <EditText
                             android:id="@+id/etMname"
@@ -83,23 +83,23 @@
                             android:inputType="text"
                             android:textSize="20sp"
                             android:layout_marginTop="5dp" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
                         android:textColorHint="#ffffff">
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:textColorHint="#ffffff">
 
-                            <android.support.design.widget.TextInputEditText
+                            <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etGender"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                                 android:inputType="text"
                                 android:textSize="20sp"
                                 android:layout_marginTop="5dp" />
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <EditText
                             android:id="@+id/etPhone"
@@ -120,7 +120,7 @@
                             android:textSize="20sp"
                             android:layout_marginTop="5dp" />
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="true"
@@ -136,8 +136,8 @@
                                 android:hint="Email"
                                 android:inputType="text"
                                 android:textSize="20sp" />
-                        </android.support.design.widget.TextInputLayout>
-                    </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <EditText
                         android:id="@+id/etFname"
@@ -149,9 +149,9 @@
                         android:textSize="20sp"
                         android:layout_marginTop="5dp"
                         />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:focusable="true"
@@ -159,21 +159,21 @@
                     android:textColorHint="#ffffff">
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
                         android:textColorHint="#ffffff">
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:textColorHint="#ffffff">
 
-                            <android.support.design.widget.TextInputLayout
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:focusable="true"
@@ -208,22 +208,12 @@
                                         android:layout_marginTop="10dp"
                                         android:layout_marginLeft="10dp"
                                         android:background="@drawable/button_rounded"/>
-                                    <Button android:id="@+id/btn_exit"
-                                        android:layout_width="150dp"
-                                        android:layout_height="wrap_content"
-                                        android:text="Exit"
-                                        android:textSize="20sp"
-                                        android:textColor="#ffffff"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginLeft="10dp"
-                                        android:background="@drawable/button_rounded"
-                                        android:layout_toRightOf="@+id/btn_reg"/>
 
                                 </RelativeLayout>
 
-                            </android.support.design.widget.TextInputLayout>
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
                         <EditText
                             android:id="@+id/etPassword"
                             android:layout_width="match_parent"
@@ -233,7 +223,7 @@
                             android:inputType="text"
                             android:textSize="20sp"
                             android:layout_marginTop="5dp"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -247,7 +237,7 @@
                     android:textSize="20sp"
                     />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
     </ScrollView>

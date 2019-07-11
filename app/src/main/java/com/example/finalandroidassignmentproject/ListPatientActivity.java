@@ -1,15 +1,11 @@
 package com.example.finalandroidassignmentproject;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class PatientListActivity extends AppCompatActivity implements View.OnClickListener {
+public class ListPatientActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Patients> list=new ArrayList<>();
 
@@ -53,7 +49,7 @@ public class PatientListActivity extends AppCompatActivity implements View.OnCli
 
                 if (response.isSuccessful()){
                     list=response.body();
-                    adap=new PatientsAdapter(PatientListActivity.this,list);
+                    adap=new PatientsAdapter(ListPatientActivity.this,list);
                     LinearLayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
                     mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                     recyclerView.setLayoutManager(mLayoutManager);
@@ -70,8 +66,5 @@ public class PatientListActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
-    @Override
-    public void onClick(View v) {
 
-    }
 }

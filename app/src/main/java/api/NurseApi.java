@@ -9,6 +9,10 @@ import retrofit2.http.Multipart;
 
 public interface NurseApi {
     @Multipart
-    @GET("nurses")
-    Call<List<Patients>> getAllPatients();
+//    @GET("nurses")
+//    Call<List<Patients>> getAllPatients();
+
+    @GET("admin/patients/listt")
+    Call<List<Patients>> getPatient();
+
 }

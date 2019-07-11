@@ -2,17 +2,14 @@ package com.example.finalandroidassignmentproject;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.StrictMode;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.finalandroidassignmentproject.BLogic.LoginBL;
 
 import Interface_API.USER_INTERFACE;
 import model.LoginSignupResponse;
@@ -26,6 +23,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText etEmail, etPassword;
     private TextView register;
     Button btnLogin;
+
     private USER_INTERFACE user_interface;
     private Retrofit retrofit;
     private Api_Connection api;
@@ -50,7 +48,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         etEmail=findViewById(R.id.etEmail);
         etPassword=findViewById(R.id.etPassword);
         btnLogin=findViewById(R.id.btnLogin);
+        register=findViewById(R.id.register);
         btnLogin.setOnClickListener(this);
+        register.setOnClickListener(this);
     }
 
 
@@ -73,6 +73,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //        checkUser(etEmail.getText().toString(),etPassword.getText().toString());
             AuthenticateUser(etEmail.getText().toString(),etPassword.getText().toString());
         }
+
+        if (v.getId()==R.id.register) {
+        startActivity(new Intent(LoginActivity.this,Register.class));
+
+        }
+
 
     }
 
@@ -128,32 +134,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     editor.commit();
                     if (status == 200){
 
-
-                        if (usertype.equals("nurse")){
-//                            Toast.makeText(LoginActivity.this, photo, Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(LoginActivity.this,NurseActivity.class));
-                            Intent intent=new Intent(LoginActivity.this,NurseActivity.class);
-                            intent.putExtra("email",email);
-                            intent.putExtra("fname",fname);
-                            intent.putExtra("mname",mname);
-                            intent.putExtra("lname",lname);
-                            intent.putExtra("photo",photo);
-
-                            startActivity(intent);
+                        startActivity(new Intent(LoginActivity.this,NurseActivity.class));
 
 
-                        }else if (usertype.equals("doctor")){
-                            startActivity(new Intent(LoginActivity.this,DoctorActivity.class));
-
-                        }
-                        else{
-//                            Toast.makeText(LoginActivity.this, gender, Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this,PatientActivity.class));
-                        }
+//                        if (usertype.equals("nurse")){
+////                            Toast.makeText(LoginActivity.this, photo, Toast.LENGTH_SHORT).show();
+////                            startActivity(new Intent(LoginActivity.this,NurseActivity.class));
+//                            Intent intent=new Intent(LoginActivity.this,NurseActivity.class);
+//                            intent.putExtra("email",email);
+//                            intent.putExtra("fname",fname);
+//                            intent.putExtra("mname",mname);
+//                            intent.putExtra("lname",lname);
+//                            intent.putExtra("photo",photo);
+//
+//                            startActivity(intent);
+//
+//
+//                        }else if (usertype.equals("doctor")){
+//                            startActivity(new Intent(LoginActivity.this,DoctorActivity.class));
+//
+//                        }
+//                        else{
+////                            Toast.makeText(LoginActivity.this, gender, Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(LoginActivity.this,PatientActivity.class));
+//                        }
 
                     }
                     else{
-                        Toast.makeText(LoginActivity.this, "BING BING", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "PLEASE CONNECT", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

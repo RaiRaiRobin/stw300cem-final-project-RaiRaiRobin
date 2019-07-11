@@ -1,31 +1,35 @@
 package com.example.finalandroidassignmentproject;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.media.Image;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,17 +37,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import Interface_API.USER_INTERFACE;
-import model.LoginSignupResponse;
-import retrofit2.Call;
-import retrofit2.Response;
+import broadcast.BroadcastReceiver;
 
-import static com.example.finalandroidassignmentproject.R.id.tvtEmail;
-
-public class NurseActivity extends AppCompatActivity {
+public class NurseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     CarouselView carouselView;
     private DrawerLayout drawer;
     private ImageView ivProfile;
     private TextView TvRLight,TvLight;
+    private CardView first;
+    private CardView Second;
+
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver(this);
 
 
     private USER_INTERFACE user_interface;
@@ -61,9 +65,26 @@ public class NurseActivity extends AppCompatActivity {
         TvRLight = (TextView)findViewById(R.id.TvRLight);
 
 
+
         SensorManager mySensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
 
+        first = findViewById(R.id.first);
+        Second = findViewById(R.id.Second);
 
+        first.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NurseActivity.this,ListPatientActivity.class);
+                startActivity(intent);
+            }
+        });
+        Second.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NurseActivity.this,ListPatientActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Sensor lightSensor = mySensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         if(lightSensor != null){
@@ -127,8 +148,12 @@ public class NurseActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawer = findViewById(R.id.drawer_layout);
+
+        NavigationView navigationView3= findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -193,4 +218,38 @@ public class NurseActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(broadcastReceiver,intentFilter);
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+
+        unregisterReceiver(broadcastReceiver);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()){
+
+            case R.id.nav_map:
+                Toast.makeText(this, "Update Profile",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(NurseActivity.this, MapsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_logout:
+                Toast.makeText(this, "Logout",Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(NurseActivity.this, LoginActivity.class);
+                startActivity(it);
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }
